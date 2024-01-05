@@ -1,7 +1,7 @@
 
 
 <template>
-  <!-- <Header></Header> -->
+  <Header></Header>
   <div class="homeContainer m-auto" style="max-width: 1700px;">
     <div style="margin: 50px 100px; background: linear-gradient(90deg, #96E9FB 0%, #ABECD6 100%); padding: 24px 48px; border-radius: 20px; display: flex; justify-content: space-around; align-items: center;">
       <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 20px;">
@@ -62,21 +62,21 @@
       <button class="BtnText" style="padding: 15px 40px; background-color: white; border: 1px solid #23A6F0; margin: 25px 0px 50px;">Load More Item</button>
     </div>
   </div>
-  <!-- <Footer></Footer> -->
+  <Footer></Footer>
 </template>
 
 <script>
-// import Footer from '@/components/FooterComponent.vue';
-// import Header from '@/components/HeaderComponent.vue';
+import Footer from '@/components/FooterComponent.vue';
+import Header from '@/components/HeaderComponent.vue';
 import ProductCard from '@/components/ProductCardComponent.vue';
 import { RouterLink } from 'vue-router';
 
 export default {
   name: 'App',
   components: {
-    // Header,
+    Header,
     ProductCard,
-    // Footer,
+    Footer,
     RouterLink
   }
 
