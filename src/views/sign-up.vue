@@ -17,10 +17,10 @@
     </div>
 </template>
 <script>
-    import myImage from './my-image.vue'
-    import myTop from './my-top.vue'
-    import myInput from './my-input.vue'
-    import myBottom from './my-bottom.vue'
+    import myImage from '../components/Register_login_child_components/my-image.vue'
+    import myTop from '../components/Register_login_child_components/my-top.vue'
+    import myInput from '../components/Register_login_child_components/my-input.vue'
+    import myBottom from '../components/Register_login_child_components/my-bottom.vue'
     export default {
         components: {
             'image-component': myImage,
