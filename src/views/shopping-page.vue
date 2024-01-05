@@ -1,4 +1,7 @@
 <template>
+    <header>
+        <Header/>
+    </header>
     <div class="main">
         <div id="top">
             <span id="text">Sort By</span>
@@ -22,8 +25,13 @@
             <button>5</button>
         </div>
     </div>
+    <footer>
+        <Footer/>
+    </footer>
 </template>
 <script>
+    import Header from '@/components/HeaderComponent.vue'
+    import Footer from '@/components/FooterComponent.vue'
     import img1 from '../assets/image/Vans Shoes.png'
     import img2 from '../assets/image/Adidas Shoes.png'
     import img3 from '../assets/image/Nike Shoes.png'
@@ -32,6 +40,11 @@
     import img6 from '../assets/image/blue-retro-puma-shoes.png'
 
     export default {
+        components: {
+            Header,
+            Footer
+        },
+
         data() {
             return {
                 Items: 
