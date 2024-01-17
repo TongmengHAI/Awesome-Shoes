@@ -2,10 +2,7 @@
     <HeaderComponent></HeaderComponent>
     <div class="main" style="margin: 50px;">
         <div id="top">
-            <span id="text" style="margin-right: 8px;">Sort By</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.33331 12.5L9.99998 5.83334L16.6666 12.5L15 14.1667L9.99998 9.16668L4.99998 14.1667L3.33331 12.5Z" fill="black"/>
-            </svg>
+            <span id="text" style="color: #000; font-family: Montserrat; font-size: 20px; font-style: normal; font-weight: 700; line-height: 24px; letter-spacing: 0.2px;">Favorites</span>
         </div>
         <div>
             <!-- eslint-disable vue/require-v-for-key -->
@@ -58,15 +55,6 @@
                     {img: img6, caption1: 'Blue-retro', caption2: 'Puma Shoes', itemName: 'Puma', itemCost: '$200'},
                     {img: img1, caption1: 'Old School', caption2: 'Shoes', itemName: 'Vans', itemCost: '$70'},
                     {img: img2, caption1: 'Originals', caption2: 'Shoes', itemName: 'Adidas', itemCost: '$100'},
-                    {img: img3, caption1: 'Air Jordan 11', caption2: '"Gratitude"', itemName: 'Nike', itemCost: '$230'},
-                    {img: img4, caption1: 'The Boot', caption2: '', itemName: 'Amberjack', itemCost: '$205'},
-                    {img: img2, caption1: 'Originals', caption2: 'Shoes', itemName: 'Adidas', itemCost: '$100'},
-                    {img: img3, caption1: 'Air Jordan 11', caption2: '"Gratitude"', itemName: 'Nike', itemCost: '$230'},
-                    {img: img4, caption1: 'The Boot', caption2: '', itemName: 'Amberjack', itemCost: '$205'},
-                    {img: img5, caption1: 'Beta', caption2: 'Footwear-BFW', itemName: 'Beta', itemCost: '$150'},
-                    {img: img6, caption1: 'Blue-retro', caption2: 'Puma Shoes', itemName: 'Puma', itemCost: '$200'}
-                    
-
                 ]
             }
         }
@@ -125,13 +113,15 @@
         color: #128A09;
     }
     #text {
-        color: #000;
-        font-family: Montserrat;
-        font-size: 16px; 
-        font-style: normal; 
-        font-weight: 500; 
-        line-height: 24px; 
-        letter-spacing: 0.2px;
+        font-family: 'Inter', sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+    #caret-circumflex {
+        font-size: 14px;
+        font-weight: bolder;
+        margin-left: 5px;
     }
     #bottom {
         display: flex;

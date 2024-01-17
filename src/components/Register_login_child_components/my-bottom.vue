@@ -5,15 +5,23 @@
             <span id="text1">Remember me</span>
             <span id="text2">Forgot password</span>
         </div>
-        <button type="submit">{{ btnValue }}</button>
+        <RouterLink to="/">
+            <button type="submit">{{ btnValue }}</button>
+        </RouterLink>
         <div id="text-bottom">
             <span id="text3">{{ textA }}</span>
-            <span id="text4">{{ textB }}</span>
+            <RouterLink to="/register" style="text-decoration: none;">
+                <span id="text4">{{ textB }}</span>
+            </RouterLink>
         </div>
     </div>
 </template>
 <script>
+    import { RouterLink } from 'vue-router';
     export default {
+        components: {
+            RouterLink
+        },
         props: {
             btnValue: {
                 type: String,

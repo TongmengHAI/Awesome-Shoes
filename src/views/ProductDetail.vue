@@ -1,4 +1,5 @@
 <template>
+    <Header></Header>
     <div class="m-auto w-100 d-flex" style="max-width: 1400px; gap: 50px; padding:5% 10%;">
         <div class="productImage d-flex gap-2" style="max-height: 500px; width: 60%;">
             <div class="subImage d-flex flex-column gap-2 " style="width: 10%;">
@@ -60,8 +61,8 @@
 
         </div>
     </div>
-    <div class="container ">
-        <div style="display: flex; justify-content: start; font-size: 24px; font-weight: 600;">
+    <div class="container " style="margin-bottom: 100px;">
+        <div class="botTxt">
             You Might Also Like
         </div>
         <div class="promotion" style="display: grid; grid-template-columns: repeat(5,1fr);gap: 20px; margin: 25px 0;">
@@ -72,21 +73,22 @@
             <ProductCard></ProductCard>
         </div>
     </div>
+    <Footer></Footer>
 
 </template>
 
 <script>
-// import Footer from '@/components/FooterComponent.vue';
-// import Header from '@/components/HeaderComponent.vue';
+import Footer from '@/components/FooterComponent.vue';
+import Header from '@/components/HeaderComponent.vue';
 import ProductCard from '@/components/ProductCardComponent.vue';
 // import ProductDetailComponentVue from '@/components/ProductDetailComponent.vue';
 export default {
   name: 'App',
   components: {
-    // Header,
+    Header,
     ProductCard,
     // ProductDetailComponentVue,
-    // Footer
+    Footer
   }
 }
 </script>
@@ -135,5 +137,13 @@ export default {
         transform: scale(0.98);
         transition: 0.1s;
     }
-    
+    .botTxt {
+        color: #252B42;
+        font-family: Montserrat;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+        letter-spacing: 0.1px;
+    }
 </style>
