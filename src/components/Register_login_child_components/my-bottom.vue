@@ -10,7 +10,7 @@
         </RouterLink>
         <div id="text-bottom">
             <span id="text3">{{ textA }}</span>
-            <RouterLink to="/register" style="text-decoration: none;">
+            <RouterLink to="/register" style="text-decoration: none; margin-top: -6px;">
                 <span id="text4">{{ textB }}</span>
             </RouterLink>
         </div>
@@ -46,29 +46,29 @@
         margin-left: 5px;
     }
     #myId{
-        width: 78%;
+        width: 77%;
         height: auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-left: 2px;
+        margin-left: 5px;
         margin-top: 30px;
     }
     #text1 {
         font-family: 'Poppins', sans-serif;
-        font-size: 10px;
-        margin-left: -80px;
+        font-size: 11px;
+        margin-left: -60px;
         margin-top: 4px;
     }
     #text2 {
         font-family: 'Poppins', sans-serif;
-        font-size: 10px;
+        font-size: 11px;
         text-decoration: underline;
         color: #EA454C;
         margin-top: 4px;
     }
     #text2:hover {
-        font-size: 11px;
+        font-size: 12px;
         cursor: pointer;
     }
     button {
@@ -93,19 +93,19 @@
     }
     #text3 {
         font-family: 'Poppins', sans-serif;
-        font-size: 9px;
+        font-size: 11px;
         margin-left: -70px;
     }
     #text4 {
         font-family: 'Poppins', sans-serif;
-        font-size: 9px;
+        font-size: 11px;
         text-decoration: underline;
         color: #EA454C;
-        margin-left: 5px;
+        margin-left: 10px;
         cursor: pointer;
     }
     #text4:hover {
-        font-size: 10px;
+        font-size: 12px;
         cursor: pointer;
     }
 </style>

@@ -92,7 +92,7 @@
         flex-direction: column;
         align-items: center;
         border-radius: 8px;
-        margin: 20px 10px;
+        margin: 20px 10px 50px;
     }
     img {
         width: inherit;
