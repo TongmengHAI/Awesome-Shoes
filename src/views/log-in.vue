@@ -18,7 +18,7 @@
             'image-component': myImage,
             'top-component': myTop,
             'input-component': myInput,
-            'bottom-component': myBottom
+            'bottom-component': myBottom,
         }
     }
 </script>

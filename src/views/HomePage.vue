@@ -8,7 +8,9 @@
         <div style="color: #2A7CC7; font-family: Montserrat; font-size: 16px; font-style: normal; font-weight: 700; line-height: 24px; letter-spacing: 0.1px;">Winter 2024</div>
         <div style="color: #252B42; font-family: Montserrat; font-size: 58px; font-style: normal; font-weight: 700; line-height: 80px; letter-spacing: 0.2px;">NEW COLLECTION</div>
         <div style="color: #737373; font-family: Montserrat; font-size: 20px; font-style: normal; font-weight: 400; line-height: 30px; letter-spacing: 0.2px;">The most comfortable shoes for the winter season</div>
-        <button style="padding: 15px 40px; background-color: #23A6F0; border: none; border-radius: 5px; color: #FFF; text-align: center; font-family: Montserrat; font-size: 24px; font-style: normal; font-weight: 700; line-height: 32px; letter-spacing: 0.1px;">SHOP NOW</button>
+        <RouterLink to="/shop" style="text-decoration: none;">
+          <button style="padding: 15px 40px; background-color: #23A6F0; border: none; border-radius: 5px; color: #FFF; text-align: center; font-family: Montserrat; font-size: 24px; font-style: normal; font-weight: 700; line-height: 32px; letter-spacing: 0.1px;">SHOP NOW</button>
+        </RouterLink>
       </div>
       <img style="height: 500px;" src="@/assets/img/Banner.png">
     </div>
@@ -39,7 +41,9 @@
           <div style="color: #FFF; text-align: right; font-family: Montserrat; font-size: 40px; font-style: normal; font-weight: 900; line-height: 50px; letter-spacing: 0.2px; margin-bottom: 20px;">PROMOTION</div>
           <div style="color: #FFF; font-family: Montserrat; font-size: 12px; font-style: normal; font-weight: 700; line-height: 16px; letter-spacing: 0.2px;">Save up to 50% on seasonal favs and must-have gear</div>
           <div style="color: #FFF; font-family: Montserrat; font-size: 12px; font-style: normal; font-weight: 700; line-height: 16px; letter-spacing: 0.2px; margin-bottom: 20px;">No code needed. Ends 12.28.</div>
-          <button style="font-family: Montserrat; border: none; background-color: white; padding: 10px 20px; border-radius: 5px">SHOP NOW</button>
+          <RouterLink to="/shop" style="text-decoration: none;">
+            <button style="font-family: Montserrat; border: none; background-color: white; padding: 10px 20px; border-radius: 5px; font-weight: 700;">SHOP NOW</button>
+          </RouterLink>
         </div>
         <img style="width: 500px; height: 300px;" src="@/assets/img/Promotion.jpg">
       </div>
@@ -51,15 +55,14 @@
       </div>
       <div class="promotion" style="display: grid; grid-template-columns: repeat(5,1fr);gap: 20px; margin: 25px 0;">
         <ProductCard></ProductCard>
-        <RouterLink to="/produtDetail">
-            <ProductCard></ProductCard>
-
-        </RouterLink>
+        <ProductCard></ProductCard>
         <ProductCard></ProductCard>
         <ProductCard></ProductCard>
         <ProductCard></ProductCard>
       </div>
-      <button class="BtnText" style="padding: 15px 40px; background-color: white; border: 1px solid #23A6F0; margin: 25px 0px 50px;">Load More Item</button>
+      <RouterLink to="/shop" style="text-decoration: none;">
+        <button class="BtnText" style="padding: 15px 40px; background-color: white; border: 1px solid #23A6F0; margin: 25px 0px 50px;">Load More Item</button>
+      </RouterLink>
     </div>
   </div>
   <Footer></Footer>
@@ -79,7 +82,6 @@ export default {
     Footer,
     RouterLink
   }
-
 }
 </script>
 
