@@ -1,5 +1,5 @@
 <template>
-    <img src="/Basketballer.png" alt="Basketballer">
+    <img src="../../assets/img/Basketballer.png" alt="Basketballer">
 </template>
 <script></script>
 <style scoped>

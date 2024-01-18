@@ -1,24 +1,30 @@
 <template>
-    <div class="productCard">
-        <div class="productImage">
-            <img src="@/assets/img/skecherMenEnergyAfterburn.jpg" alt="" >
-        </div>
-        <div class="productContent">
-            <div class="productName" style="margin: 10px;">Skecher Men's Energy Afterburn</div>
-            <div class="brandName" style="margin: 10px;">Nike</div>
-            <div class="productPrice">
-                <div class="salePrice">59$</div>
-                <div class="originalPrice"><s>70$</s></div>
+    <RouterLink to="/productDetail"  style="text-decoration: none; color: #212529;">
+        <div class="productCard">
+            <div class="productImage">
+                <img src="@/assets/img/skecherMenEnergyAfterburn.jpg" alt="" >
+            </div>
+            <div class="productContent">
+                <div class="productName" style="margin: 10px;">Skecher Men's Energy Afterburn</div>
+                <div class="brandName" style="margin: 10px;">Nike</div>
+                <div class="productPrice">
+                    <div class="salePrice">59$</div>
+                    <div class="originalPrice"><s>70$</s></div>
+                </div>
             </div>
         </div>
-    </div>
+    </RouterLink>
 </template>
 
 <script>
-    export default {
-        name: 'ProductCard',
-        
-    }
+import { RouterLink } from 'vue-router';
+
+export default {
+    name: 'ProductCard',   
+}
+components: {
+    RouterLink
+}
 </script>
 
 <style scoped>

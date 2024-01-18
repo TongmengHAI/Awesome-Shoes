@@ -10,10 +10,39 @@ const router = createRouter({
       component: HomePage
     },
     {
-      path: '/produtDetail',
+      path: '/productDetail',
       name: 'productDetail',
-    
       component: () => import('@/views/ProductDetail.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/log-in.vue')
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import('@/views/sign-up.vue')
+    },
+    {
+      path: '/shop',
+      name: 'shop',
+      component: () => import('@/views/shopping-page.vue')
+    },
+    {
+      path: '/aboutUs',
+      name: 'aboutUS',
+      component: () => import('@/views/AboutUsPage.vue')
+    },
+    {
+      path: '/favorites',
+      name: 'favotites',
+      component: () => import('@/views/FavoritePage.vue')
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('@/views/CartPage.vue')
     },
   ]
 })

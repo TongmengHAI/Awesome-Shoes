@@ -5,7 +5,9 @@
             <div class="Column">
                 <div class="WhiteText">Company Info</div>
                 <div class="GreyText">News</div>
-                <div class="GreyText">About Us</div>
+                <RouterLink to="/aboutUs" style="text-decoration: none;">
+                    <div class="GreyText">About Us</div>
+                </RouterLink>
                 <div class="GreyText">Student Discount</div>
                 <div class="GreyText">Sustainability</div>
             </div>
