@@ -7,7 +7,7 @@
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.33331 12.5L9.99998 5.83334L16.6666 12.5L15 14.1667L9.99998 9.16668L4.99998 14.1667L3.33331 12.5Z" fill="black"/>
             </svg>
         </div>
-        <div>
+        <div style="display: grid;">
             <!-- eslint-disable vue/require-v-for-key -->
             <RouterLink to="/productDetail" style="text-decoration: none;"  id="container">
                 <figure v-for="item in Items">
@@ -60,13 +60,12 @@
                     {img: img2, caption1: 'Originals', caption2: 'Shoes', itemName: 'Adidas', itemCost: '$100'},
                     {img: img3, caption1: 'Air Jordan 11', caption2: '"Gratitude"', itemName: 'Nike', itemCost: '$230'},
                     {img: img4, caption1: 'The Boot', caption2: '', itemName: 'Amberjack', itemCost: '$205'},
+                    {img: img5, caption1: 'Beta', caption2: 'Footwear-BFW', itemName: 'Beta', itemCost: '$150'},
+                    {img: img6, caption1: 'Blue-retro', caption2: 'Puma Shoes', itemName: 'Puma', itemCost: '$200'},
+                    {img: img1, caption1: 'Old School', caption2: 'Shoes', itemName: 'Vans', itemCost: '$70'},
                     {img: img2, caption1: 'Originals', caption2: 'Shoes', itemName: 'Adidas', itemCost: '$100'},
                     {img: img3, caption1: 'Air Jordan 11', caption2: '"Gratitude"', itemName: 'Nike', itemCost: '$230'},
                     {img: img4, caption1: 'The Boot', caption2: '', itemName: 'Amberjack', itemCost: '$205'},
-                    {img: img5, caption1: 'Beta', caption2: 'Footwear-BFW', itemName: 'Beta', itemCost: '$150'},
-                    {img: img6, caption1: 'Blue-retro', caption2: 'Puma Shoes', itemName: 'Puma', itemCost: '$200'}
-                    
-
                 ]
             }
         }
