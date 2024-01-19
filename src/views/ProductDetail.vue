@@ -66,11 +66,9 @@
             You Might Also Like
         </div>
         <div class="promotion" style="display: grid; grid-template-columns: repeat(5,1fr);gap: 20px; margin: 25px 0;">
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
+            <div v-for="shoes in Shoes.slice(0, 5)">
+              <ProductCard :img="shoes.img" :name="shoes.name" :brand="shoes.brand" :price="shoes.price" :discounted="shoes.discounted" />
+        </div>
         </div>
     </div>
     <Footer></Footer>
@@ -82,6 +80,10 @@ import Footer from '@/components/FooterComponent.vue';
 import Header from '@/components/HeaderComponent.vue';
 import ProductCard from '@/components/ProductCardComponent.vue';
 // import ProductDetailComponentVue from '@/components/ProductDetailComponent.vue';
+import { useStore } from '../stores/store.js';
+import { defineStore } from 'pinia';
+import { mapState } from 'pinia';
+
 export default {
   name: 'App',
   components: {
@@ -89,7 +91,10 @@ export default {
     ProductCard,
     // ProductDetailComponentVue,
     Footer
-  }
+  },
+  computed: {
+    ...mapState(useStore, ['Shoes']),
+  },
 }
 </script>
 

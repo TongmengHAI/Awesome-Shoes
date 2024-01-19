@@ -35,11 +35,9 @@
             You Might Also Like
         </div>
         <div class="promotion" style="display: grid; grid-template-columns: repeat(5,1fr);gap: 20px; margin: 25px 0;">
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
+            <div v-for="shoes in Shoes.slice(0, 5)">
+                <ProductCard :img="shoes.img" :name="shoes.name" :brand="shoes.brand" :price="shoes.price" :discounted="shoes.discounted" />
+            </div>
         </div>
     </div>
 
@@ -64,7 +62,7 @@ export default {
         CartComponent
     },
     computed: {
-        ...mapState(useStore, ['Cart', 'taxRate']),
+        ...mapState(useStore, ['Cart', 'taxRate','Shoes']),
     },
     methods: {
         // Calculate subtotal based on cart items

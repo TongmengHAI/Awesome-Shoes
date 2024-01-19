@@ -1,5 +1,3 @@
-
-
 <template>
   <Header></Header>
   <div class="homeContainer m-auto" style="max-width: 1700px;">
@@ -54,11 +52,9 @@
         <div style="margin-bottom: 10px; color: #252B42; text-align: center; font-family: Montserrat; font-size: 24px; font-style: normal; font-weight: 700; line-height: 32px; letter-spacing: 0.1px;">BESTSELLER PRODUCTS</div>
       </div>
       <div class="promotion" style="display: grid; grid-template-columns: repeat(5,1fr);gap: 20px; margin: 25px 0;">
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
-        <ProductCard></ProductCard>
+        <div v-for="shoes in Shoes.slice(0, 5)">
+          <ProductCard :img="shoes.img" :name="shoes.name" :brand="shoes.brand" :price="shoes.price" :discounted="shoes.discounted" />
+        </div>
       </div>
       <RouterLink to="/shop" style="text-decoration: none;">
         <button class="BtnText" style="padding: 15px 40px; background-color: white; border: 1px solid #23A6F0; margin: 25px 0px 50px;">Load More Item</button>
@@ -73,6 +69,9 @@ import Footer from '@/components/FooterComponent.vue';
 import Header from '@/components/HeaderComponent.vue';
 import ProductCard from '@/components/ProductCardComponent.vue';
 import { RouterLink } from 'vue-router';
+import { useStore } from '../stores/store.js';
+import { defineStore } from 'pinia';
+import { mapState } from 'pinia';
 
 export default {
   name: 'App',
@@ -81,7 +80,10 @@ export default {
     ProductCard,
     Footer,
     RouterLink
-  }
+  },
+  computed: {
+    ...mapState(useStore, ['Shoes']),
+  },
 }
 </script>
 
