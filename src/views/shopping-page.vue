@@ -71,12 +71,7 @@
         align-items: center;
         flex-direction: column;
         border-radius: 8px;
-        margin-top: 24;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px; 
-    }
-    figure:hover {
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        cursor: pointer;
+
     }
     img {
         width: 212px;
