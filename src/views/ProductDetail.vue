@@ -3,26 +3,26 @@
     <div class="m-auto w-100 d-flex" style="max-width: 1400px; gap: 50px; padding:5% 10%;">
         <div class="productImage d-flex gap-2" style="max-height: 500px; width: 60%;">
             <div class="subImage d-flex flex-column gap-2 " style="width: 10%;">
-                <img src="@/assets/img/sub1skechersMenEnergyAfterBurn.jpg" alt="" class="subImg1 w-100">
-                <img src="@/assets/img/sub2skechersMenEnergyAfterBurn.jpg" alt="" class="subImg2 w-100">
-                <img src="@/assets/img/sub3skechersMenEnergyAfterBurn.jpg" alt="" class="subImg3 w-100">
-                <img src="@/assets/img/sub4skechersMenEnergyAfterBurn.jpg" alt="" class="subImg4 w-100">
-                <img src="@/assets/img/sub5skechersMenEnergyAfterBurn.jpg" alt="" class="subImg5 w-100">
+                <img src="@/assets/img/sub1skechersMenEnergyAfterBurn.jpg" alt="" class="subImg1" style="width: 60px; height: 60px;">
+                <img src="@/assets/img/sub2skechersMenEnergyAfterBurn.jpg" alt="" class="subImg2" style="width: 60px; height: 60px;">
+                <img src="@/assets/img/sub3skechersMenEnergyAfterBurn.jpg" alt="" class="subImg3" style="width: 60px; height: 60px;">
+                <img src="@/assets/img/sub4skechersMenEnergyAfterBurn.jpg" alt="" class="subImg4" style="width: 60px; height: 60px;">
+                <img src="@/assets/img/sub5skechersMenEnergyAfterBurn.jpg" alt="" class="subImg5" style="width: 60px; height: 60px;">
             </div>
             <div class="mainImage " style=" width: 90%;">
-                <img src="@/assets/img/skecherMenEnergyAfterburn.jpg" alt="" class="w-100" >
+                <img :src="currentShoe.img" alt="" class="w-100" style="height: 500px;">
             </div>
         </div>
         <div class="productDetail" style="width: 40%;">
             <div class="nameSec d-flex flex-column gap-3">
                 <div class="title">
-                    <div class="name" style="font-weight: bold; font-size: 24px">Skecher Men's Energy Afterburn</div>
-                    <div class="category" style="font-weight:500;font-size: 16px">Men’s Shoes</div>
+                    <div class="name" style="font-weight: bold; font-size: 24px">{{ currentShoe.name }}</div>
+                    <div class="category" style="font-weight:500;font-size: 16px">{{ currentShoe.brand }}</div>
                 </div>
                 <div class="price d-flex gap-2 align-items-center justify-content-start">
-                    <div class="salePrice" style="font-size: 24px; font-weight: 600;">75$</div>
-                    <div class="originalPrice" style="font-size: 16px; color: gray;"><s>100$</s></div>
-                    <div class="promotion" style="font-size: 16px; color: green;">25% off</div>
+                    <div class="salePrice" style="font-size: 24px; font-weight: 600;">{{ currentShoe.price }}$</div>
+                    <div class="originalPrice" style="font-size: 16px; color: gray;"><s>{{ currentShoe.discounted }}$</s></div>
+                    <div class="promotion" style="font-size: 16px; color: green;">{{ currentShoe.discount }}% off</div>
                 </div>
             </div>
             <div class="sizeSec" style="margin-bottom: 50px;">
@@ -94,6 +94,10 @@ export default {
   },
   computed: {
     ...mapState(useStore, ['Shoes']),
+    currentShoe() {
+    const shoeName = this.$route.params.shoeName;
+    return this.Shoes.find(shoe => shoe.name === shoeName);
+    },
   },
 }
 </script>
