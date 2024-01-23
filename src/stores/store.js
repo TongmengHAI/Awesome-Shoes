@@ -12,30 +12,7 @@ const TAX_RATE = 0.08;
 export const useStore = defineStore('images', {
   state: () => ({
     Cart: [
-      {
-        img: Vans,
-        name: "Vans Shoes",
-        type: "Men",
-        size: "15",
-        quantity: "5",
-        price: "5000.00",
-      },
-      {
-        img: Nike,
-        name: "Nike Shoes",
-        type: "Women",
-        size: "13",
-        quantity: "3",
-        price: "200.00",
-      },
-      {
-        img: Adidas,
-        name: "Adidas Shoes",
-        type: "Kid",
-        size: "9",
-        quantity: "2",
-        price: "350.00",
-      }
+
     ],
     Shoes: [
       {
@@ -88,7 +65,7 @@ export const useStore = defineStore('images', {
         brand: "Puma",
         type: "Women",
         size: "13",
-        quantity: "3",
+        quantity: "3",  
         price: "200.00",
         discounted: "300.00",
         discount: "25%"
@@ -105,6 +82,9 @@ export const useStore = defineStore('images', {
         discount: "25%"
       },
     ],
+    Favorites: [
+
+    ],
     taxRate: TAX_RATE,
   }),
   getters: {
@@ -113,6 +93,14 @@ export const useStore = defineStore('images', {
     },
     calculatePrice(shoe) {
       return (1 - (parseFloat(shoe.discount) / 100)) * parseFloat(shoe.discounted);
+    },
+  },
+  actions: {
+    addToCart(product) {
+      this.Cart.push(product);
+    },
+    addToFavorite(shoe) {
+      this.Favorites.push(shoe);
     },
   },
 });

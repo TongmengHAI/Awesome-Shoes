@@ -43,8 +43,8 @@
             </div>
 
             <div class="btnSec d-inline-block w-100 d-flex flex-column gap-2" style="margin-bottom: 50px;">
-                <button class="addToCart btn w-100" >Cart</button>
-                <button class="addToFavorite btn w-100" >Favorite <i class='bx bx-heart'></i></button>
+                <button class="addToCart btn w-100" @click="addToCartClick" >Cart</button>
+                <button class="addToFavorite btn w-100" @click="addToFavoriteClick" >Favorite <i class='bx bx-heart'></i></button>
             </div>
             <div class="detailSec">
                 <div class="title" style=" font-size: 24px; font-weight: 500;">Details</div>
@@ -84,6 +84,7 @@ import { useStore } from '../stores/store.js';
 import { defineStore } from 'pinia';
 import { mapState } from 'pinia';
 
+
 export default {
   name: 'App',
   components: {
@@ -97,6 +98,40 @@ export default {
     currentShoe() {
     const shoeName = this.$route.params.shoeName;
     return this.Shoes.find(shoe => shoe.name === shoeName);
+    },
+  },
+  methods: {
+    addToFavoriteClick() {
+      // Retrieve the store instance
+      const store = useStore();
+
+      // Get the current shoe based on the route params
+      const shoeName = this.$route.params.shoeName;
+      const selectedShoe = this.Shoes.find((shoe) => shoe.name === shoeName);
+
+      if (!selectedShoe) {
+        console.error('Selected shoe not found');
+        return;
+      }
+
+      // Add the selected shoe to the favorite using the store method
+      store.addToFavorite(selectedShoe);
+    },
+    addToCartClick() {
+      // Retrieve the store instance
+      const store = useStore();
+
+      // Get the current shoe based on the route params
+      const shoeName = this.$route.params.shoeName;
+      const selectedShoe = this.Shoes.find((shoe) => shoe.name === shoeName);
+
+      if (!selectedShoe) {
+        console.error('Selected shoe not found');
+        return;
+      }
+
+      // Add the selected shoe to the favorite using the store method
+      store.addToCart(selectedShoe);
     },
   },
 }
