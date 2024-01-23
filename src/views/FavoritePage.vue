@@ -6,7 +6,7 @@
         </div>
         <div style="display: grid; grid-template-columns: repeat(5, 1fr); row-gap: 24px; margin-top: 24px;">
             <!-- eslint-disable vue/require-v-for-key -->
-            <RouterLink to="/productDetail" style="text-decoration: none; width: 236px;"  v-for="shoes in Shoes" :key="shoes.name" :to="{ name: 'productDetail', params: { shoeName: shoes.name }}">
+            <RouterLink :to="{ name: 'productDetail', params: { shoeName: shoes.name } }" style="text-decoration: none; width: 236px;"  v-for="shoes in Shoes">
                 <figure>
                     <img :src="shoes.img" style="width: 212px; height: 212px; margin-top: 12px; background-color: gray;">
                     <div style="padding: 12px; width: 212px;">
