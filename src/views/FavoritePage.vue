@@ -6,6 +6,7 @@
         </div>
         <div style="display: grid; grid-template-columns: repeat(5, 1fr); row-gap: 24px; margin-top: 24px;">
             <!-- eslint-disable vue/require-v-for-key -->
+
             <RouterLink :to="{ name: 'productDetail', params: { shoeName: favorite.name } }" style="text-decoration: none; width: 236px;"  v-for="favorite in Favorites">
                 <figure>
                     <img :src="favorite.img" style="width: 212px; height: 212px; margin-top: 12px; background-color: gray;">
@@ -15,6 +16,7 @@
                         <div style="display: flex; gap: 12px;">
                             <p id="itemCost">${{ favorite.price }}</p>
                             <p id="itemDiscounted">${{ favorite.discounted }}</p>
+
                         </div>
                     </div>
                 </figure>
@@ -46,8 +48,8 @@
         },
         computed: {
             ...mapState(useStore, ['Favorites']),
-        },
-    }
+            ...mapState(useStore, ['Shoes']),
+
 </script>
 <style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@0,100;0,200;0,400;1,200&display=swap');

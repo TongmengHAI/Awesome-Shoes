@@ -133,6 +133,7 @@ export default {
       // Add the selected shoe to the favorite using the store method
       store.addToCart(selectedShoe);
     },
+
   },
 }
 </script>
