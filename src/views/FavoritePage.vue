@@ -6,15 +6,17 @@
         </div>
         <div style="display: grid; grid-template-columns: repeat(5, 1fr); row-gap: 24px; margin-top: 24px;">
             <!-- eslint-disable vue/require-v-for-key -->
-            <RouterLink to="/productDetail" style="text-decoration: none; width: 236px;"  v-for="shoes in Shoes" :key="shoes.name" :to="{ name: 'productDetail', params: { shoeName: shoes.name }}">
+
+            <RouterLink :to="{ name: 'productDetail', params: { shoeName: favorite.name } }" style="text-decoration: none; width: 236px;"  v-for="favorite in Favorites">
                 <figure>
-                    <img :src="shoes.img" style="width: 212px; height: 212px; margin-top: 12px; background-color: gray;">
+                    <img :src="favorite.img" style="width: 212px; height: 212px; margin-top: 12px; background-color: gray;">
                     <div style="padding: 12px; width: 212px;">
-                        <figcaption>{{ shoes.name }}</figcaption>
-                        <p id="itemName">{{ shoes.brand }}</p>
+                        <figcaption>{{ favorite.name }}</figcaption>
+                        <p id="itemName">{{ favorite.brand }}</p>
                         <div style="display: flex; gap: 12px;">
-                            <p id="itemCost">${{ shoes.price }}</p>
-                            <p id="itemDiscounted">${{ shoes.discounted }}</p>
+                            <p id="itemCost">${{ favorite.price }}</p>
+                            <p id="itemDiscounted">${{ favorite.discounted }}</p>
+
                         </div>
                     </div>
                 </figure>
@@ -45,9 +47,9 @@
             RouterLink
         },
         computed: {
+            ...mapState(useStore, ['Favorites']),
             ...mapState(useStore, ['Shoes']),
-        },
-    }
+
 </script>
 <style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@0,100;0,200;0,400;1,200&display=swap');

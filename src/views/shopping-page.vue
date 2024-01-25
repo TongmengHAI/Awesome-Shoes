@@ -9,7 +9,8 @@
         </div>
         <div style="display: grid; grid-template-columns: repeat(5, 1fr); row-gap: 24px; margin-top: ;">
             <!-- eslint-disable vue/require-v-for-key -->
-            <RouterLink to="/productDetail" style="text-decoration: none; width: 236px;"  v-for="shoes in Shoes">
+            <RouterLink :to="{ name: 'productDetail', params: { shoeName: shoes.name } }" style="text-decoration: none; width: 236px;"  v-for="shoes in Shoes">
+
                 <figure>
                     <img :src="shoes.img" style="width: 212px; height: 212px; margin-top: 12px; background-color: gray;">
                     <div style="padding: 12px; width: 212px;">
@@ -71,6 +72,12 @@
         align-items: center;
         flex-direction: column;
         border-radius: 8px;
+        margin-top: 24;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px; 
+    }
+    figure:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        cursor: pointer;
 
     }
     img {

@@ -1,5 +1,5 @@
 <template>
-    <RouterLink to="/productDetail"  style="text-decoration: none; color: #212529;">
+    <RouterLink :to="{ name: 'productDetail', params: { shoeName: name } }" style="text-decoration: none; color: #212529;">
         <div class="productCard" style="width: 236px; display: flex; flex-direction: column; align-items: center; ">
             <div class="productImage" style="width: 212px; height: 212px; margin-top: 12px; background-color: grey">
                 <img :src="img" alt="" >
