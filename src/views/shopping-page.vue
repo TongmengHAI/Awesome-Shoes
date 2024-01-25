@@ -7,15 +7,19 @@
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.33331 12.5L9.99998 5.83334L16.6666 12.5L15 14.1667L9.99998 9.16668L4.99998 14.1667L3.33331 12.5Z" fill="black"/>
             </svg>
         </div>
-        <div>
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); row-gap: 24px; margin-top: ;">
             <!-- eslint-disable vue/require-v-for-key -->
-            <RouterLink to="/productDetail" style="text-decoration: none;"  id="container">
-                <figure v-for="item in Items">
-                    <img :src="item.img">
-                    <figcaption>{{ item.caption1 }}</figcaption>
-                    <figcaption>{{ item.caption2 }}</figcaption>
-                    <p id="itemName">{{ item.itemName }}</p>
-                    <p id="itemCost">{{ item.itemCost }}</p>
+            <RouterLink :to="{ name: 'productDetail', params: { shoeName: shoes.name } }" style="text-decoration: none; width: 236px;"  v-for="shoes in Shoes">
+                <figure>
+                    <img :src="shoes.img" style="width: 212px; height: 212px; margin-top: 12px; background-color: gray;">
+                    <div style="padding: 12px; width: 212px;">
+                        <figcaption>{{ shoes.name }}</figcaption>
+                        <p id="itemName">{{ shoes.brand }}</p>
+                        <div style="display: flex; gap: 12px;">
+                            <p id="itemCost">${{ shoes.price }}</p>
+                            <p id="itemDiscounted">${{ shoes.discounted }}</p>
+                        </div>
+                    </div>
                 </figure>
             </RouterLink>
         </div>
@@ -30,15 +34,12 @@
     <FooterComponent></FooterComponent>
 </template>
 <script>
-    import img1 from '../assets/img/Vans Shoes.png'
-    import img2 from '../assets/img/Adidas Shoes.png'
-    import img3 from '../assets/img/Nike Shoes.png'
-    import img4 from '../assets/img/amberjack Shoes.png'
-    import img5 from '../assets/img/Beta Footwear-BFW.png'
-    import img6 from '../assets/img/blue-retro-puma-shoes.png'
     import HeaderComponent from '@/components/HeaderComponent.vue'
     import FooterComponent from '@/components/FooterComponent.vue'
     import { RouterLink } from 'vue-router'
+    import { useStore } from '../stores/store.js';
+    import { defineStore } from 'pinia';
+    import { mapState } from 'pinia';
 
     export default {
         components: {
@@ -46,30 +47,9 @@
             FooterComponent,
             RouterLink
         },
-        data() {
-            return {
-                Items: 
-                [
-                    {img: img1, caption1: 'Old School', caption2: 'Shoes', itemName: 'Vans', itemCost: '$70'},
-                    {img: img2, caption1: 'Originals', caption2: 'Shoes', itemName: 'Adidas', itemCost: '$100'},
-                    {img: img3, caption1: 'Air Jordan 11', caption2: '"Gratitude"', itemName: 'Nike', itemCost: '$230'},
-                    {img: img4, caption1: 'The Boot', caption2: '', itemName: 'Amberjack', itemCost: '$205'},
-                    {img: img5, caption1: 'Beta', caption2: 'Footwear-BFW', itemName: 'Beta', itemCost: '$150'},
-                    {img: img6, caption1: 'Blue-retro', caption2: 'Puma Shoes', itemName: 'Puma', itemCost: '$200'},
-                    {img: img1, caption1: 'Old School', caption2: 'Shoes', itemName: 'Vans', itemCost: '$70'},
-                    {img: img2, caption1: 'Originals', caption2: 'Shoes', itemName: 'Adidas', itemCost: '$100'},
-                    {img: img3, caption1: 'Air Jordan 11', caption2: '"Gratitude"', itemName: 'Nike', itemCost: '$230'},
-                    {img: img4, caption1: 'The Boot', caption2: '', itemName: 'Amberjack', itemCost: '$205'},
-                    {img: img2, caption1: 'Originals', caption2: 'Shoes', itemName: 'Adidas', itemCost: '$100'},
-                    {img: img3, caption1: 'Air Jordan 11', caption2: '"Gratitude"', itemName: 'Nike', itemCost: '$230'},
-                    {img: img4, caption1: 'The Boot', caption2: '', itemName: 'Amberjack', itemCost: '$205'},
-                    {img: img5, caption1: 'Beta', caption2: 'Footwear-BFW', itemName: 'Beta', itemCost: '$150'},
-                    {img: img6, caption1: 'Blue-retro', caption2: 'Puma Shoes', itemName: 'Puma', itemCost: '$200'}
-                    
-
-                ]
-            }
-        }
+        computed: {
+            ...mapState(useStore, ['Shoes']),
+        },
     }
 </script>
 <style scoped>
@@ -86,18 +66,21 @@
         flex-wrap: wrap;
     }
     figure {
-        width: 150px;
-        height: 260px;
+        width: 236px;
         display: flex;
-        flex-direction: column;
         align-items: center;
+        flex-direction: column;
         border-radius: 8px;
-        margin: 20px 10px;
+        margin-top: 24;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px; 
+    }
+    figure:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        cursor: pointer;
     }
     img {
-        width: inherit;
-        height: 9rem;
-        margin-bottom: 10px;
+        width: 212px;
+        height: 212px;
     }
     #top {
         margin-top: 20px;
@@ -106,23 +89,29 @@
     }
     figcaption {
         font-family: 'Montserat', sans-serif;
-        font-size: 13px;
-        font-weight: bold;
-        margin: 3px 0;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 700;
         color: #252B42;
     }
     #itemName {
         font-family: 'Montserat', sans-serif;
         color: #737373;
-        font-size: 11px;
+        font-size: 14px;
         font-weight: bold;
-        margin: 12px 0 20px 0;
+        line-height: 24px;
     }
     #itemCost {
-        font-family: 'Montserat', sans-serif;
-        font-size: 12px;
-        font-weight: bold;
-        color: #128A09;
+        font-weight: 700;
+        font-size: 14px;
+        color: green;
+        line-height: 24px;
+        align-items: center;
+    }
+    #itemDiscounted {
+        font-size: 10px;
+        line-height: 24px;
+        color: gray;
     }
     #text {
         color: #000;

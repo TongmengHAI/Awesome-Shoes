@@ -2,28 +2,28 @@
     <HeaderComponent/>
     
     <div style="display: flex; margin: 100px 100px 200px; justify-content: space-between;">
-        <div style="display: flex; flex-direction: column;gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 24px;">
             <div class="h1">Bag</div>
-            <CartComponent/>
-            <CartComponent/>
-            <CartComponent/>
+            <div  v-for="cart in Cart" style="display: flex; flex-direction: column; gap: 24px;">
+                <CartComponent :img="cart.img" :name="cart.name" :type="cart.type" :size="cart.size" :quantity="cart.quantity" :price="cart.price"/>
+            </div>
         </div>
         <div style="display: flex; flex-direction: column; align-items: center; gap: 24px;">
             <div class="h1" style="width: 400px;">Summary</div>
             <div style="display: flex; flex-direction: column; gap: 16px;">
                 <div class="cart">
                     <div class="h3">Subtotal</div>
-                    <div class="h3" style="text-align: right;">$350.00</div>
+                    <div class="h3" style="text-align: right;">${{ calculateSubtotal() }}</div>
                 </div>
                 <div class="cart">
                     <div class="h3">Estimated Tax</div>
-                    <div class="h3" style="text-align: right;">$0.00</div>
+                    <div class="h3" style="text-align: right;">${{ calculateTax() }}</div>
                 </div>
             </div>
             <div class="line"></div>
             <div class="cart">
                 <div class="h3">Total</div>
-                <div class="h3" style="text-align: right;">$350.00</div>
+                <div class="h3" style="text-align: right;">${{ calculateTotal() }}</div>
             </div>
             <div class="line"></div>
             <button class="h2" style="font-family: Montserrat; color: #fff; background-color: #000; padding: 20px 100px; border-radius: 50px;">Checkout</button>
@@ -35,11 +35,9 @@
             You Might Also Like
         </div>
         <div class="promotion" style="display: grid; grid-template-columns: repeat(5,1fr);gap: 20px; margin: 25px 0;">
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
-            <ProductCard></ProductCard>
+            <div v-for="shoes in Shoes.slice(0, 5)">
+                <ProductCard :img="shoes.img" :name="shoes.name" :brand="shoes.brand" :price="shoes.price" :discounted="shoes.discounted" />
+            </div>
         </div>
     </div>
 
@@ -52,6 +50,9 @@ import HeaderComponent from '@/components/HeaderComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ProductCard from '@/components/ProductCardComponent.vue';
 import CartComponent from '@/components/CartComponent.vue';
+import { useStore } from '../stores/store.js';
+import { defineStore } from 'pinia';
+import { mapState } from 'pinia';
 
 export default {
     components: {
@@ -59,7 +60,32 @@ export default {
         FooterComponent,
         ProductCard,
         CartComponent
-    }
+    },
+    computed: {
+        ...mapState(useStore, ['Cart', 'taxRate','Shoes']),
+    },
+    methods: {
+        // Calculate subtotal based on cart items
+        calculateSubtotal() {
+            return this.Cart.reduce((total, item) => {
+                return total + item.quantity * parseFloat(item.price);
+            }, 0).toFixed(2);
+        },
+        // Calculate tax based on subtotal and tax rate
+        calculateTax() {
+            const subtotal = this.calculateSubtotal();
+            const tax = (subtotal * (this.taxRate / 100)).toFixed(2);
+            return tax;
+        },
+        // Calculate total based on subtotal and tax
+        calculateTotal() {
+            const subtotal = parseFloat(this.calculateSubtotal());
+            const tax = parseFloat(this.calculateTax());
+            const total = (subtotal + tax).toFixed(2);
+            return total;
+        },
+    },
+
 }
 </script>
 

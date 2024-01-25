@@ -1,15 +1,15 @@
 <template>
-    <RouterLink to="/productDetail"  style="text-decoration: none; color: #212529;">
-        <div class="productCard">
-            <div class="productImage">
-                <img src="@/assets/img/skecherMenEnergyAfterburn.jpg" alt="" >
+    <RouterLink :to="{ name: 'productDetail', params: { shoeName: name } }" style="text-decoration: none; color: #212529;">
+        <div class="productCard" style="width: 236px; display: flex; flex-direction: column; align-items: center; ">
+            <div class="productImage" style="width: 212px; height: 212px; margin-top: 12px; background-color: grey">
+                <img :src="img" alt="" >
             </div>
             <div class="productContent">
-                <div class="productName" style="margin: 10px;">Skecher Men's Energy Afterburn</div>
-                <div class="brandName" style="margin: 10px;">Nike</div>
+                <div class="productName" style=";">{{ name }}</div>
+                <div class="brandName" style="">{{ brand }}</div>
                 <div class="productPrice">
-                    <div class="salePrice">59$</div>
-                    <div class="originalPrice"><s>70$</s></div>
+                    <div class="salePrice" >${{ price }}</div>
+                    <div class="originalPrice"><s>${{ discounted }}</s></div>
                 </div>
             </div>
         </div>
@@ -21,9 +21,13 @@ import { RouterLink } from 'vue-router';
 
 export default {
     name: 'ProductCard',   
-}
-components: {
-    RouterLink
+    props: {
+        img: String,
+        name: String,
+        brand: String,
+        price: String,
+        discounted: String,
+    },
 }
 </script>
 
@@ -47,31 +51,39 @@ components: {
         object-fit: contain;
     }
     .productContent{
-        padding: 5px 10px;
+        width: 200px;
+        padding: 12px 0px;
     }
     .productContent .productName{
-        font-size: 15px;
-        font-weight: bold;
+        font-size: 16px;
         font-family: Montserrat;
+        font-weight: 700;
+        color: #252B42;
+
     }
     .productContent .brandName{
-        font-size: 13px;
+        font-size: 14px;
         color: gray;
         font-family: Montserrat;
+        font-weight: 500;
+        line-height: 24px;
     }
     .productContent .productPrice{
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 10px;
+        gap: 12px;
         font-family: Montserrat;
+        font-weight: 600;
+        line-height: 24px;
     }
     .productPrice .salePrice{
-        font-size: 15px;
+        font-size: 14px;
         color: green;
+        align-items: center;
     }
     .productPrice .originalPrice{
-        font-size: 13px;
+        margin-top: 2px;
+        font-size: 10px;
         color: gray;
     }
 </style>

@@ -25,16 +25,13 @@
 <style scoped>
     .container {
         position: relative;
-        width: 800px;
+        width: 1000px;
         height: 450px;
         background-color: #f8f8f8;
-        margin: 50px auto;
+        margin: auto;
     }
     .container > div {
-        width: fit-content;
-        height: fit-content;
-        padding: 30px 50px 50px 50px;
-        margin-left: 20px;
+        width: 500px;
     }
     #bottomId {
         margin: -10px 0 0 3px;
