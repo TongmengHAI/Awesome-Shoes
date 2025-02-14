@@ -49,6 +49,8 @@
         computed: {
             ...mapState(useStore, ['Favorites']),
             ...mapState(useStore, ['Shoes']),
+        },
+    }
 
 </script>
 <style scoped>

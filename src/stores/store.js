@@ -104,4 +104,4 @@ export const useStore = defineStore('images', {
       this.Favorites.push(shoe);
     },
   },
-
+  }),});
